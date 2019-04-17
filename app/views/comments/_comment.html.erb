@@ -1,4 +1,4 @@
-<% if comment.id != nil %>
+<% if !(comment.id.nil?) %>
   <div>
     <%= comment.content %>
     <%= link_to 'Remove comment', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
