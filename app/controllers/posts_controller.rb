@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    # new Comment instance for the 'add comment' section form
     @comment = @post.comments.build
   end
 
