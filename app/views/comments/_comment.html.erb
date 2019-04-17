@@ -1,0 +1,7 @@
+<% if comment.id != nil %>
+  <div>
+    <%= comment.content %>
+    <%= link_to 'Remove comment', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to "Edit comment", edit_post_comment_path(comment.post, comment) %>
+  </div>
+<% end %>
