@@ -1,5 +1,9 @@
 <ul class="list-group list-group-flush itemList">
   <% @posts.each do |post| %>
-    <%= render 'preview', post: post %>
+    <%= render 'preview', post: PostPresenter.new(post) %>
   <% end %>
 </ul>
+
+<div class="flickr_pagination">
+  <%= will_paginate @posts %>
+</div>
