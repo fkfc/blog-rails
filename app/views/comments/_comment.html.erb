@@ -1,7 +1,9 @@
 <% if !(comment.id.nil?) %>
-  <div>
-    <%= comment.content %>
-    <%= link_to 'Remove comment', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to "Edit comment", edit_post_comment_path(comment.post, comment) %>
-  </div>
+  <li class="list-group-item comment">
+    <pre><%= comment.content %></pre>
+    <div class="btn-group btn-group-sm" role="group">
+      <%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "btn btn-secondary" %>
+      <%= link_to 'Remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+    </div>
+  </li>
 <% end %>

@@ -1,1 +1,49 @@
 @import "bootstrap";
+
+.mainContainer {
+  width: 100%;
+  padding-top: 20px;
+
+  .commentGroup {
+    margin: 20px 0px 0px 0px;
+
+    .commentList {
+      margin-top: 20px;
+    }
+
+    .newCommentSection {
+      margin-top: 20px;
+    }
+
+    .comment {
+      pre {
+        font-family: sans-serif
+      }
+    }
+
+  }
+
+  .back {
+    margin-top: 20px;
+  }
+
+  .itemList {
+    .item {
+      .title {
+        margin-bottom: 0;
+      }
+      .date {
+        @extend .h6;
+        @extend .text-muted;
+        margin-top: 0;
+
+      }
+      .commentCount {
+        @extend .h6;
+        margin-top: 10px;
+      }
+
+    }
+  }
+
+}

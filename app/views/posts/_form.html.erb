@@ -2,11 +2,15 @@
   
   <%= render 'shared/post_error_messages' %>
 
-  <%= form.label :title %> <br>
-  <%= form.text_field :title, placeholder: "Type the post title here" %> <br>
+  <div class="form-group">
+    <%= form.label :title %> <br>
+    <%= form.text_field :title, placeholder: "Type the post title here", class: "form-control" %> <br>
+  </div>
 
-  <%= form.label :content %> <br>
-  <%= form.text_area :content, size: "60x12", placeholder: "Type the post text here" %> <br>
+  <div class="form-group">
+    <%= form.label :content %> <br>
+    <%= form.text_area :content, size: "60x12", placeholder: "Type the post text here", class: "form-control" %> <br>
+  </div>
 
-  <%= form.submit %>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

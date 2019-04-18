@@ -1,4 +1,9 @@
-<% @posts.each do |post| %>
-  <h1> <%= link_to "#{post.title}", post %> </h1>
-  <p> <%= post.comments.count %> comments </p>
-<% end %>
+<ul class="list-group list-group-flush itemList">
+  <% @posts.each do |post| %>
+    <li class="list-group-item item">
+      <h1 class="title"> <%= link_to "#{post.title}", post %> </h1>
+      <div class="date"><%= post.created_at %></div>
+      <div class="commentCount"><%= post.comment_count %></div>
+    </li>
+  <% end %>
+</ul>

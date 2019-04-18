@@ -1,9 +1,10 @@
 <%= form_for([@post, @comment]) do |f| %>
-
-<%= render 'shared/comment_error_messages' %>
-
-<%= f.text_area :content, size: "60x12", placeholder: "Type your comment here" %> <br>
-
-<%= f.submit %>
-
+  <form>
+    <%= render 'shared/comment_error_messages' %>
+    <div class="form-group">
+      <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control" %> <br>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
+  </form>
+  
 <% end %>
