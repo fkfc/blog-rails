@@ -3,7 +3,10 @@
   <div class="card-body">
     <p class="card-text"><%= @post.content %></p>
 
-    <div class="text-right">
+    <div class="boxFooter">
+      <div class='text'>
+        Posted at <%= @post.created_at %>
+      </div>
       <div class="btn-group" role="group">
         <%= link_to "Edit", edit_post_path(@post), class: "btn btn-secondary" %>
         <%= link_to "Remove", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary" %>
@@ -18,7 +21,7 @@
       <div class="commentList">
         <h3>Comments</h3>
         <ul class="list-group">
-          <%= render @post.comments %>
+          <%= render @comments %>
         </ul>
       </div>
   <% end %>

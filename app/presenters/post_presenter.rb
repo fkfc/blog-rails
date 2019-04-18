@@ -14,7 +14,7 @@ class PostPresenter < SimpleDelegator
   end
 
   def created_at
-    post.created_at.strftime('%b %e, %Y - %H:%M')
+    post.created_at.strftime('%b %e, %Y %H:%M')
   end
 
   def comment_count

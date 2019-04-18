@@ -5,10 +5,15 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
 
   def index
-    @posts = Post.all.map { |post| PostPresenter.new(post) }
+    all_posts = Post.order(created_at: :desc).all
+    @posts = all_posts.map { |post| PostPresenter.new(post) }
   end
 
   def show
+    # comment list ordered by creation date and reinstanced as CommentPresenter
+    all_comments = @post.comments.order(created_at: :asc)
+    @comments = all_comments.map { |comment| CommentPresenter.new(comment) }
+
     # new Comment instance for the 'add comment' section form
     @comment = @post.comments.build
   end
@@ -48,6 +53,6 @@ class PostsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find_by(slug: params[:slug])
+    @post = PostPresenter.new(Post.find_by(slug: params[:slug]))
   end
 end
