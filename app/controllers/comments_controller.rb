@@ -37,11 +37,11 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:post_id, :content)
+    params.require(:comment).permit(:post_slug, :content)
   end
 
   def find_post
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by(slug: params[:post_slug])
   end
 
   def find_comment

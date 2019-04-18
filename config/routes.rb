@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts do
+  resources :posts, param: :slug do
     resources :comments
   end
-
 end
