@@ -78,3 +78,4 @@ gem 'will_paginate', '~> 3.1.0'
 # React on Rails
 gem 'react_on_rails', '11.2.2'
 gem 'webpacker', '~> 3'
+gem 'foreman'
