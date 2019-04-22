@@ -1,10 +1,10 @@
-<%= form_for([@post, @comment]) do |f| %>
-  <form>
-    <%= render 'shared/comment_error_messages' %>
-    <div class="form-group">
-      <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control" %> <br>
-    </div>
-    <%= f.submit class: "btn btn-primary" %>
-  </form>
-  
-<% end %>
+<%= render 'shared/comment_error_messages' %>
+<%
+  form_props = {
+    content: @comment.content,
+    actionPath: @comment.id == nil ? "#{post_path(@post)}/comments" : post_comment_path(@comment.post, @comment),
+    authenticityToken: form_authenticity_token,
+    method: @comment.id == nil ? "post" : "patch"
+  }
+%>
+<%= react_component("CommentForm", props: form_props, prerender: false) %>

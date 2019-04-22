@@ -17,6 +17,12 @@ class PostsController < ApplicationController
 
     # new Comment instance for the 'add comment' section form
     @comment = @post.comments.build
+
+    @react_post_props = {
+      post: @post,
+      postPath: post_path(@post),
+      comments: @comments
+    }
   end
 
   def new

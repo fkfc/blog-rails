@@ -1,0 +1,35 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import Comment from '../../Blog/components/Comment';
+
+const comment = {
+  content: 'Test content',
+};
+
+const HelloWorld = ({ name, updateName }) => (
+  <div>
+    <h3>
+      Hello, {name}!
+    </h3>
+    <hr />
+    <Comment comment={comment} />
+    <form >
+      <label htmlFor="name">
+        Say hello to:
+      </label>
+      <input
+        id="name"
+        type="text"
+        value={name}
+        onChange={(e) => updateName(e.target.value)}
+      />
+    </form>
+  </div>
+);
+
+HelloWorld.propTypes = {
+  name: PropTypes.string.isRequired,
+  updateName: PropTypes.func.isRequired,
+};
+
+export default HelloWorld;

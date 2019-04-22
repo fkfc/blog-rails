@@ -25,6 +25,15 @@ class PostPresenter < SimpleDelegator
     end
   end
 
+  def as_json(*)
+    # overrides some attributes with the values provided
+    # by the presenter methods
+    overrides = {
+      created_at: created_at
+    }
+    @post.as_json.merge(overrides)
+  end
+
   private
 
   def helpers

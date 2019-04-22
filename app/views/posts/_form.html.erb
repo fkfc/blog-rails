@@ -1,16 +1,11 @@
-<%= form_for(@post) do |form| %>
-  
-  <%= render 'shared/post_error_messages' %>
-
-  <div class="form-group">
-    <%= form.label :title %> <br>
-    <%= form.text_field :title, placeholder: "Type the post title here", class: "form-control" %> <br>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :content %> <br>
-    <%= form.text_area :content, size: "60x12", placeholder: "Type the post text here", class: "form-control" %> <br>
-  </div>
-
-  <%= form.submit class: "btn btn-primary" %>
-<% end %>
+<%= render 'shared/post_error_messages' %>
+<% 
+  form_props = {
+    title: @post.title,
+    content: @post.content,
+    actionPath: @post.id == nil ? "/posts" : post_path(@post),
+    authenticityToken: form_authenticity_token,
+    method: @post.id == nil ? "post" : "patch"
+  }
+%>
+<%= react_component("PostForm", props: form_props, prerender: false) %>

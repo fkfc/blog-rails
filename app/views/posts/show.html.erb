@@ -1,20 +1,4 @@
-<div class="card">
-  <h3 class="card-header"><%= @post.title %></h3>
-  <div class="card-body">
-    <p class="card-text"><%= @post.content %></p>
-
-    <div class="boxFooter">
-      <div class='text'>
-        Posted at <%= @post.created_at %>
-      </div>
-      <div class="btn-group" role="group">
-        <%= link_to "Edit", edit_post_path(@post), class: "btn btn-secondary" %>
-        <%= link_to "Remove", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary" %>
-      </div>
-    </div>
-    
-  </div>
-</div>
+<%= react_component("Post", props: @react_post_props, prerender: false) %>
 
 <div class="commentGroup">
   <% if @post.comments.count > 0 %>

@@ -1,10 +1,9 @@
 <% if @comment.errors.any? %>
-     <div>
-          <p><%= pluralize(@comment.errors.count, "error") %> prevented this comment from saving.</p>
-          <ul>
-               <% @comment.errors.full_messages.each do |msg| %>
-               <li><%= msg %></li>
-               <% end %>
-          </ul> 
-     </div>
+  <%
+    props = {
+      name: "comment",
+      errors: @comment.errors.full_messages
+    }
+  %>
+  <%= react_component("ErrorList", props: props, prerender: false) %>
 <% end %>

@@ -1,14 +1,9 @@
-<% if !(comment.id.nil?) %>
-  <li class="list-group-item comment">
-    <pre><%= comment.content %></pre>
-    <div class="boxFooter">
-      <div class="text">
-        <%= comment.created_at %>
-      </div>
-      <div class="btn-group btn-group-sm" role="group">
-        <%= link_to "Edit", edit_post_comment_path(comment.post, comment), class: "btn btn-secondary" %>
-        <%= link_to 'Remove', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
-      </div>
-    </div>
-  </li>
-<% end %>
+<% 
+  comment_props = {
+    id: comment.id,
+    content: comment.content,
+    createdAt: comment.created_at,
+    postCommentPath: post_comment_path(comment.post, comment) 
+  }
+%>
+<%= react_component("Comment", props: comment_props, prerender: false) %>
