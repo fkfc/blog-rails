@@ -79,5 +79,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'react_on_rails', '11.2.2'
 gem 'webpacker', '~> 3'
 gem 'foreman'
+gem 'rubocop'
+gem 'rubocop-performance'
 
 gem 'mini_racer', platforms: :ruby

@@ -19,7 +19,9 @@ class PostsController < ApplicationController
     @comment = @post.comments.build
 
     @react_post_props = {
-      post: @post,
+      title: @post.title,
+      content: @post.content,
+      createdAt: @post.created_at,
       postPath: post_path(@post),
       comments: @comments
     }
