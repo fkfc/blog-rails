@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Comment from '../../Blog/components/Comment';
 
 const comment = {
   content: 'Test content',
@@ -12,7 +11,6 @@ const HelloWorld = ({ name, updateName }) => (
       Hello, {name}!
     </h3>
     <hr />
-    <Comment comment={comment} />
     <form >
       <label htmlFor="name">
         Say hello to:

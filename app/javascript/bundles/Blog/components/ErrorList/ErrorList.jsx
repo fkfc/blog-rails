@@ -15,7 +15,10 @@ export default function ErrorList(props) {
       </h5>
       <ul>
         {
-          errors.map(error => <li>{error}</li>)
+          errors.map((error, index) => {
+            const key = `error${index}`;
+            return (<li key={key}>{error}</li>);
+          })
         }
       </ul>
     </div>

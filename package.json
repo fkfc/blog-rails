@@ -4,6 +4,10 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.7.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,7 +16,33 @@
     "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "chai": "^4.2.0",
     "eslint-config-airbnb": "^17.1.0",
+    "expect": "^24.1.0",
+    "jest-enzyme": "^7.0.2",
+    "react-test-renderer": "^16.8.3",
     "webpack-dev-server": ">=3.1.11"
+  },
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["./node_modules/jest-enzyme/lib/index.js"],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/javascript/__mocks__/fileMock.js",
+      "\\.(css|scss|less)$": "<rootDir>/test/javascript/__mocks__/styleMock.js"
+    },
+    "roots": [
+      "app/javascript/packs",
+      "app/javascript/bundles",
+      "test/javascript"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "app/javascript/packs"
+    ]
   }
 }

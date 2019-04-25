@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Post Component Should render correctly 1`] = `
+<div>
+  <form
+    action={null}
+    method="post"
+  >
+    <input
+      name="_method"
+      readOnly={true}
+      type="hidden"
+      value="post"
+    />
+    <input
+      name="authenticity_token"
+      type="hidden"
+      value="token"
+    />
+    <div
+      className="form-group"
+    >
+      Title
+      <input
+        className="form-control"
+        defaultValue=""
+        name="post[title]"
+        placeholder="Type the post title here"
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <textarea
+        className="form-control"
+        defaultValue=""
+        name="post[content]"
+        placeholder="Type the post text here"
+        rows="10"
+      />
+    </div>
+    <div
+      className="text-right"
+    >
+      <input
+        className="btn btn-primary"
+        type="submit"
+        value="Create Post"
+      />
+    </div>
+  </form>
+</div>
+`;

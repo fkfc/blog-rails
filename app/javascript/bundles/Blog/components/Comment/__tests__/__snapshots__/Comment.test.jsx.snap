@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Post Component Should render correctly 1`] = `
+<li
+  className="list-group-item comment"
+>
+  <pre>
+    comment content
+  </pre>
+  <div
+    className="boxFooter"
+  >
+    <div
+      className="text"
+    >
+      Aaa, 12 3456
+    </div>
+    <div
+      className="btn-group btn-group-sm"
+      role="group"
+    >
+      <a
+        className="btn btn-secondary"
+        href="/postCommentPath/edit"
+      >
+        Edit
+      </a>
+      <a
+        className="btn btn-secondary"
+        data-method="delete"
+        href="/postCommentPath"
+        rel="nofollow"
+      >
+        Remove
+      </a>
+    </div>
+  </div>
+</li>
+`;

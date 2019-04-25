@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing the Post Component Should render correctly 1`] = `
+<div
+  className="card"
+>
+  <h3
+    className="card-header"
+  >
+    My Title
+  </h3>
+  <div
+    className="card-body"
+  >
+    <p
+      className="card-text"
+    >
+      My content
+    </p>
+    <div
+      className="boxFooter"
+    >
+      <div
+        className="text"
+      >
+        Posted at
+        Month 00th, 9999
+      </div>
+      <div
+        className="btn-group"
+        role="group"
+      >
+        <a
+          className="btn btn-secondary"
+          href="/postPath/edit"
+        >
+          Edit
+        </a>
+        <a
+          className="btn btn-secondary"
+          data-method="delete"
+          href="/postPath"
+          rel="nofollow"
+        >
+          Remove
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
