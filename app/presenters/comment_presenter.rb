@@ -16,4 +16,14 @@ class CommentPresenter < SimpleDelegator
   def created_at
     comment.created_at.strftime('%b %e, %Y %H:%M')
   end
+
+  def as_json(*)
+    # overrides some attributes with the values provided
+    # by the presenter methods
+    overrides = {
+      created_at: created_at
+    }
+    @comment.as_json.merge(overrides)
+  end
+
 end

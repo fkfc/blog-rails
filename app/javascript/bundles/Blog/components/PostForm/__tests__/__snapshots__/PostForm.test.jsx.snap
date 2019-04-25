@@ -24,6 +24,7 @@ exports[`Testing the Post Component Should render correctly 1`] = `
       <input
         className="form-control"
         defaultValue=""
+        id="post[title]"
         name="post[title]"
         placeholder="Type the post title here"
         type="text"
@@ -35,6 +36,7 @@ exports[`Testing the Post Component Should render correctly 1`] = `
       <textarea
         className="form-control"
         defaultValue=""
+        id="post[content]"
         name="post[content]"
         placeholder="Type the post text here"
         rows="10"
@@ -45,6 +47,8 @@ exports[`Testing the Post Component Should render correctly 1`] = `
     >
       <input
         className="btn btn-primary"
+        id="submit"
+        name="submit"
         type="submit"
         value="Create Post"
       />
