@@ -3,7 +3,8 @@
     id: comment.id,
     content: comment.content,
     createdAt: comment.created_at,
-    postCommentPath: post_comment_path(comment.post, comment) 
+    postCommentPath: post_comment_path(comment.post, comment) ,
+    author: comment.user.present? ? comment.user.email : nil
   }
 %>
 <%= react_component("Comment", props: comment_props, prerender: false) %>

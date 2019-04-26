@@ -3,6 +3,8 @@
 # Controller class for the Post model
 class PostsController < ApplicationController
   before_action :find_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :verify_ownership, only: [:edit, :update, :destroy]
 
   def index
     @posts = Post
@@ -23,16 +25,19 @@ class PostsController < ApplicationController
       content: @post.content,
       createdAt: @post.created_at,
       postPath: post_path(@post),
-      comments: @comments
+      comments: @comments,
+      author: @post.user.present? ? @post.user.email : nil
     }
   end
 
   def new
-    @post = Post.new
+    # @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    # @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to @post, notice: 'The post has been created!'
     else
@@ -63,5 +68,12 @@ class PostsController < ApplicationController
 
   def find_post
     @post = PostPresenter.new(Post.find_by(slug: params[:slug]))
+  end
+
+  def verify_ownership
+    is_not_owner = @post.user.present? && @post.user != current_user
+    if is_not_owner
+      redirect_to @post, notice: 'Error: the current user is not the author'
+    end
   end
 end

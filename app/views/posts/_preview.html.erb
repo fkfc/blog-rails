@@ -1,5 +1,10 @@
 <li class="list-group-item item">
   <h1 class="title"> <%= link_to "#{post.title}", post %> </h1>
-  <div class="date"><%= post.created_at %></div>
+  <div class="subtitle">
+    <% if post.user.present? %>
+      <div class="author"><%= post.user.email %></div>
+    <% end %>
+    <div class="date"><%= post.created_at %></div>
+  </div>
   <div class="commentCount"><%= post.comment_count %></div>
 </li>

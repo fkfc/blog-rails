@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 
 function Post(props) {
   const {
-    postPath, title, content, createdAt,
+    postPath, title, author, content, createdAt,
   } = props;
   const editPostPath = `${postPath}/edit`;
+  const authorText = author ? ` by ${author}` : '';
 
   return (
     <div className="card">
@@ -15,8 +16,9 @@ function Post(props) {
 
         <div className="boxFooter">
           <div className="text">
-            Posted at
+            Posted at &nbsp;
             {createdAt}
+            {authorText}
           </div>
           <div className="btn-group" role="group">
             <a href={editPostPath} className="btn btn-secondary">Edit</a>
@@ -34,7 +36,11 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   createdAt: PropTypes.string.isRequired,
+  author: PropTypes.string,
 };
 
+Post.defaultProps = {
+  author: null,
+};
 
 export default Post;
