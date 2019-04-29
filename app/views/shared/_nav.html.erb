@@ -1,36 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Blog</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item active">
-        <a class="nav-link" href="/posts">Index<span class="sr-only"></span></a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/posts/new">New Post<span class="sr-only"></span></a>
-      </li>
-
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "#{current_user.email}", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-
-      
-
-    </ul>
-    
-  </div>
-</nav>
+<%
+  props = {
+    signedIn: user_signed_in?,
+    currentUserEmail: user_signed_in? ? current_user.email : nil,
+    signOutLink: destroy_user_session_path,
+    signInLink: new_user_session_path,
+    signUpLink: new_user_registration_path,
+  }
+%>
+<%= react_component("NavBar", props: props, prerender: false) %>

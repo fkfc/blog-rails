@@ -10,6 +10,12 @@ class PostsController < ApplicationController
     @posts = Post
              .paginate(page: params[:page], per_page: 5)
              .order(created_at: :desc)
+
+    respond_to do |format|
+      format.html { @posts }
+      format.json { render json: @posts }
+      format.xml { render xml: @posts.to_xml }
+    end
   end
 
   def show
@@ -28,6 +34,12 @@ class PostsController < ApplicationController
       comments: @comments,
       author: @post.user.present? ? @post.user.email : nil
     }
+
+    respond_to do |format|
+      format.html { @post }
+      format.json { render :json => @post.to_json( :include => [:comments]) }
+      format.xml { render :xml => @post.to_xml(:include => :comments) }
+    end
   end
 
   def new

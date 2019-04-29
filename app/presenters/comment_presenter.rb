@@ -25,5 +25,4 @@ class CommentPresenter < SimpleDelegator
     }
     @comment.as_json.merge(overrides)
   end
-
 end
