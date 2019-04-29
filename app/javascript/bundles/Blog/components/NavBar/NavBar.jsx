@@ -25,10 +25,20 @@ const NavBar = (props) => {
 
           {
             signedIn ? (
-              <li className="nav-item">
-                <a href={signOutLink} data-method="delete" className="nav-link">
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle"
+                  id="navbarDropdown"
+                  type="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
                   {currentUserEmail}
                 </a>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a className="dropdown-item" href={signOutLink} data-method="delete">Sign Out</a>
+                </div>
               </li>
             ) : [
               <li className="nav-item">
