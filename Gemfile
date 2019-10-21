@@ -86,6 +86,6 @@ gem 'rubocop'
 gem 'rubocop-performance'
 
 #login
-gem 'devise', '~> 4.6', '>= 4.6.2'
+gem 'devise', '~> 4.7'
 
 gem 'mini_racer', platforms: :ruby
